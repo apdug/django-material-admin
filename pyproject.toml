@@ -1,6 +1,6 @@
 [tool.poetry]
-name = "django-material-admin"
-version = "0.1.0"
+name = "material"
+version = "1.0.0"
 description = ""
 authors = ["jp <jmartinez@clk.com.uy>"]
 
