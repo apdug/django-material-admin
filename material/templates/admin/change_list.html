@@ -5,6 +5,37 @@
 {% block extrastyle %}
   {{ block.super }}
   <link rel="stylesheet" type="text/css" href="{% static 'material/admin/css/changelists.min.css' %}">
+  <style>
+    #changelist-form {
+      width:100%;
+    }
+
+    #changelist-filter {
+      margin-left:0;
+    }
+    #content-main {
+      background-color: #eeeeef;
+      padding: 5px;
+      display: flex;
+      position: relative;
+    }
+    #content-main .object-tools {
+      position: absolute;
+      top: 15px;
+      width: 75%;
+      padding-right: 20px;
+    }
+    #changelist {
+      padding-top: 40px;
+    }
+    .object-tools li {
+      display: block;
+      margin-left: 5px;
+      height: 16px;
+      float: right;
+      margin-right: 10px;
+  }
+  </style>
 {% endblock %}
 
 {% block content %}
