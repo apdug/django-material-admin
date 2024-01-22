@@ -25,3 +25,11 @@ class AdminConfig(MaterialAdminConfig):
     def ready(self):
         super().ready()
         self.module.autodiscover()
+
+        try:
+            from django.contrib.auth.views import LogoutView
+            if hasattr(LogoutView, 'http_method_names'):
+                if 'get' not in LogoutView.http_method_names:
+                    LogoutView.http_method_names += ['get',]
+        except:
+            pass
