@@ -15,7 +15,7 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     package_data={
-        'material': ['admin/*', 'templatetags/*', 'static/*', 'templates/*', 'locale/*']
+        'material': ['admin/**', 'templatetags/**', 'static/**', 'templates/**', 'locale/**']
     },
     author="Anton Maistrenko",
     author_email="it2015maistrenko@gmail.com",
