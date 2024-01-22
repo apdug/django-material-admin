@@ -16,6 +16,7 @@
 
 2. Include the material templates URLconf in your project **urls.py** like this:
  - required
+
 .. code-block:: python
 
     from django.contrib import admin
@@ -27,6 +28,7 @@
 
 3. Include the material settings in your project **settings.py** like this:
  - required
+
 .. code-block:: python
     _ = lambda x: x
 
