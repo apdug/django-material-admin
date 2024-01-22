@@ -30,6 +30,7 @@
  - required
 
 .. code-block:: python
+
     _ = lambda x: x
 
 
