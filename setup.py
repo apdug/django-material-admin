@@ -1,7 +1,8 @@
 import os
 from setuptools import find_packages, setup
 
-README = ''
+with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
+    README = readme.read()
 
 # allow setup.py to be run from any path
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
@@ -9,11 +10,14 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name="material",
-    version="1.0.3",
+    version="1.1.3",
     license='MIT License',
     packages=find_packages(),
-    author="Anton Maistrenko",
     include_package_data=True,
+    package_data={
+        'material': ['admin/*', 'templatetags/*', 'static/*', 'templates/*', 'locale/*']
+    },
+    author="Anton Maistrenko",
     author_email="it2015maistrenko@gmail.com",
     description="Material Design For Django Administration",
     long_description=README,
