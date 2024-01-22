@@ -1,0 +1,7 @@
+include README.md
+recursive-include material/static *
+recursive-include material/admin *
+recursive-include material/templates *
+recursive-include material/templatetags *
+recursive-include material/locale *
+
