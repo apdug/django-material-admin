@@ -10,6 +10,26 @@ from material.admin.settings import MATERIAL_ADMIN_SITE
 from material.admin.views import ThemesView
 
 
+def has_circular_inheritance(cls, compare, visited=None):
+    if visited is None:
+        visited = set()
+
+    if not hasattr(cls, '__bases__'):
+        return has_circular_inheritance(cls.__class__, compare, visited)
+
+    if compare in visited:
+        return True
+
+    visited.add(cls)
+
+    for base_cls in cls.__bases__:
+        if has_circular_inheritance(base_cls, compare, visited):
+            return True
+
+    visited.remove(cls)
+    return False
+
+
 class MaterialAdminSite(AdminSite):
     """Extends AdminSite to add material design for admin interface"""
     favicon = None
@@ -24,7 +44,8 @@ class MaterialAdminSite(AdminSite):
 
     def register(self, model_or_iterable, admin_class=None, **options):
         if admin_class:
-            admin_class = type('admin_class', (MaterialModelAdminMixin, admin_class), {})
+            if not has_circular_inheritance(admin_class, MaterialModelAdminMixin):
+                admin_class = type('admin_class', (MaterialModelAdminMixin, admin_class), {})
         return super().register(model_or_iterable, admin_class, **options)
 
     def __init__(self, name='material'):
