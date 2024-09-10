@@ -6,6 +6,26 @@
   <link rel="stylesheet" type="text/css" href="{% static 'material/admin/css/change_form.min.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'material/admin/css/object_tools.min.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'material/admin/css/object_tools-responsive.min.css' %}">
+  <style>
+    .form-row .input-field div div label {
+      float: left;
+      clear: both;
+      text-align: left;
+      font-size: 1rem !important;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+    .form-row .input-field div div label input {
+      border: solid 1px #000;
+      float: left;
+      visibility: visible !important;
+      display: inline-block !important;
+      width: 17px;
+      height: 17px;
+      margin-right: 10px !important;
+      margin-top: 3px !important;
+    }
+  </style>
 {% endblock %}
 
 {% block content %}
