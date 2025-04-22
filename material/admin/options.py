@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.db import models
 from django.forms import SplitDateTimeField, forms
+from django.contrib.admin import helpers
 
 from material.admin import widgets
 
@@ -14,11 +15,19 @@ FORMFIELD_FOR_DBFIELD_MATERIAL = {
     models.TextField: {'widget': widgets.MaterialAdminTextareaWidget},
 }
 
+class MaterialActionForm(helpers.ActionForm):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs['form'] = 'changelist-form'
 
 class MaterialModelAdminMixin:
     def __init__(self, model, admin_site):
         super().__init__(model, admin_site)
         self.formfield_overrides.update(FORMFIELD_FOR_DBFIELD_MATERIAL)
+
+    action_form = MaterialActionForm
 
     @property
     def media(self):

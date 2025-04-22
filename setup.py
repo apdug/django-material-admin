@@ -10,7 +10,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name="material",
-    version="1.1.6",
+    version="1.1.7",
     license='MIT License',
     packages=find_packages(),
     include_package_data=True,
@@ -27,6 +27,10 @@ setup(
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
         'Framework :: Django :: 3.2',
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
